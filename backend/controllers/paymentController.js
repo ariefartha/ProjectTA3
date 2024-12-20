@@ -74,7 +74,7 @@ const midtransPayment = async (req, res) => {
         first_name: booking.username,
       },
       callbacks: {
-        finish_redirect_url: "http://localhost:3000/success",
+        finish_redirect_url: "https://sukaprivatemengemudi.vercel.app/success",
       },
     };
 
