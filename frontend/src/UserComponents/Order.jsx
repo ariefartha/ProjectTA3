@@ -119,7 +119,7 @@ const Order = () => {
               // Simpan informasi pembayaran di localStorage
               localStorage.setItem("pembayaran", JSON.stringify(result));
               showToast("Sukses😊", "Pembayaran berhasil.", "success");
-              window.location.href = "http://localhost:3000/success";
+              window.location.href = "https://sukaprivatemengemudi.vercel.app/success";
               setOrder(null);
               onClose();
             },
