@@ -1,15 +1,14 @@
 {
     "version": 2,
     "builds": [
-        {
-            "src": "server.js",
-            "use": "@vercel/node"
-        }
+        { "src": "*.js", "use": "@vercel/node" }
     ],
     "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "server.js"
-        }
+        { "src": "/api/users/(.*)", "dest": "/api/users.js" },
+        { "src": "/api/booking/(.*)", "dest": "/api/booking.js" },
+        { "src": "/api/testimoni/(.*)", "dest": "/api/testimoni.js" },
+        { "src": "/api/schedule/(.*)", "dest": "/api/schedule.js" },
+        { "src": "/api/payment/(.*)", "dest": "/api/payment.js" },
+        { "src": "/(.*)", "dest": "/" }
     ]
 }
