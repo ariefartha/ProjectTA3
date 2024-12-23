@@ -37,7 +37,7 @@ app.use(cookieParser()); //allow get the cookie from request and set the cookie 
 
 //routes
 app.get("/", (req, res) => {
-  res.send("Backend is running");
+  res.send("my server is running");
 });
 app.use("/api/users", userRoutes);
 app.use("/api/booking", bookingRoutes);
