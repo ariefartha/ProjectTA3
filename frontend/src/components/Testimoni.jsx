@@ -32,7 +32,7 @@ const Testimoni = () => {
                 bgGradient='linear(to-l, #7928CA, #FF0080)'
                 bgClip='text'
             >
-                Testimoni dari pelanggan kami xxx
+                Testimoni dari pelanggan kami
             </Heading>
             {testimoni.slice(0, visibleCount).map((data, index) => (
                 <HStack justifyContent={"center"} mb={2} key={index}>
