@@ -1,3 +1,4 @@
+import cors from "cors"
 import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./db/connectDB.js";
@@ -21,15 +22,23 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
+//cors
+app.use(
+  cors({
+    origin: "https://sukaprivatemengemudi.vercel.app/", 
+    credentials: true, 
+  })
+);
+
 //midleware
 app.use(express.json({ limit: "50mb" })); //to parse JSON data in the req.body
 app.use(express.urlencoded({ extended: true })); //to parse form data in the req.body
 app.use(cookieParser()); //allow get the cookie from request and set the cookie inside response
 
 //routes
-app.use("/", (req, res) => {
-    res.send("backend is running");
-  });
+app.get("/", (req, res) => {
+  res.send("Backend is running");
+});
 app.use("/api/users", userRoutes);
 app.use("/api/booking", bookingRoutes);
 app.use("/api/testimoni", testimoniRoutes);
