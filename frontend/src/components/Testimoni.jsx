@@ -4,11 +4,11 @@ import React, { useEffect, useState } from 'react';
 
 const Testimoni = () => {
     const [testimoni, setTestimoni] = useState([]);
-    const [visibleCount, setVisibleCount] = useState(2); // Jumlah data yang terlihat awalnya
+    const [visibleCount, setVisibleCount] = useState(2); 
 
     useEffect(() => {
         const getTestimoni = async () => {
-            const res = await fetch("/api/testimoni/gettestimoni");
+            const res = await fetch("https://project-backend-six.vercel.app/api/testimoni/gettestimoni");
             const data = await res.json();
 
             if (res.ok) {
