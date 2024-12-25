@@ -27,7 +27,7 @@ const UserList = () => {
     const getAllUser = async () => {
       setLoading(true); 
       try {
-        const res = await fetch("/api/users/getalluser");
+        const res = await fetch("https://project-backend-six.vercel.app/api/users/getalluser");
         const data = await res.json();
         if (res.ok) {
           setUsers(data);
@@ -46,7 +46,7 @@ const UserList = () => {
     try {
       if (!window.confirm("Apakah anda ingin menghapus data ini?")) return;
 
-      const res = await fetch(`/api/users/delete/${id}`, {
+      const res = await fetch(`https://project-backend-six.vercel.app/api/users/delete/${id}`, {
         method: "DELETE",
       });
       const data = await res.json();
@@ -68,7 +68,7 @@ const UserList = () => {
     try {
       if (!window.confirm("Apakah Anda ingin menghapus jadwal ini?")) return;
 
-      const res = await fetch(`/api/schedule/schedule/${selectedUser._id}/${scheduleId}`, {
+      const res = await fetch(`https://project-backend-six.vercel.app/api/schedule/schedule/${selectedUser._id}/${scheduleId}`, {
         method: "DELETE",
       });
       const data = await res.json();
@@ -96,7 +96,7 @@ const UserList = () => {
     if (selectedUser) {
       const fetchSchedule = async () => {
         try {
-          const res = await fetch(`/api/schedule/schedule/${selectedUser._id}`, {
+          const res = await fetch(`https://project-backend-six.vercel.app/api/schedule/schedule/${selectedUser._id}`, {
             method: "GET",
           });
           const data = await res.json();
@@ -112,7 +112,7 @@ const UserList = () => {
   const inputSchedule = async (scheduleData) => {
     setLoading(true);
     try {
-      const res = await fetch(`/api/schedule/schedule/${selectedUser._id}`, {
+      const res = await fetch(`https://project-backend-six.vercel.app/api/schedule/schedule/${selectedUser._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -127,7 +127,7 @@ const UserList = () => {
       showToast("Sukses😊", result.message, "success");
 
       // Fetch the updated schedules after adding a new schedule
-      const updatedSchedulesRes = await fetch(`/api/schedule/schedule/${selectedUser._id}`, {
+      const updatedSchedulesRes = await fetch(`https://project-backend-six.vercel.app/api/schedule/schedule/${selectedUser._id}`, {
         method: "GET",
       });
       const updatedSchedules = await updatedSchedulesRes.json();

@@ -43,7 +43,7 @@ const ScheduleTabPanel = ({ schedules, setSchedules, formatDateToIndonesian }) =
   const handleUpdateSchedule = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`/api/schedule/updatestatusbyadmin/${input.userId}`, {
+      const res = await fetch(`https://project-backend-six.vercel.app/api/schedule/updatestatusbyadmin/${input.userId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -129,7 +129,7 @@ const ScheduleTabPanel = ({ schedules, setSchedules, formatDateToIndonesian }) =
     const getInstructure = async () => {
       setLoading(true);
       try {
-        const res = await fetch("/api/users/getallinstructure");
+        const res = await fetch("https://project-backend-six.vercel.app/api/users/getallinstructure");
         const data = await res.json();
         if (res.ok) {
           setInstructure(data);
@@ -147,7 +147,7 @@ const ScheduleTabPanel = ({ schedules, setSchedules, formatDateToIndonesian }) =
     try {
       if (!window.confirm("Apakah Anda ingin menghapus jadwal ini?")) return;
 
-      const res = await fetch(`/api/schedule/schedule/${userId}/${id}`, {
+      const res = await fetch(`https://project-backend-six.vercel.app/api/schedule/schedule/${userId}/${id}`, {
         method: "DELETE",
       });
       const data = await res.json();

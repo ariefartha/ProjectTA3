@@ -15,7 +15,7 @@ const MyPostTestimoni = () => {
   useEffect(() => {
     const getMyPost = async () => {
       try {
-        const res = await fetch(`/api/testimoni/getmypost/${user._id}`, {
+        const res = await fetch(`https://project-backend-six.vercel.app/api/testimoni/getmypost/${user._id}`, {
           method: 'GET',
         });
         const data = await res.json();
@@ -49,7 +49,7 @@ const MyPostTestimoni = () => {
   const handleDelete = async (id) => {
     try {
       if (!window.confirm("Apakah anda ingin menghapus testimoni ini?")) return;
-      const res = await fetch(`/api/testimoni/deletetestimoni/${id}`, {
+      const res = await fetch(`https://project-backend-six.vercel.app/api/testimoni/deletetestimoni/${id}`, {
         method: "DELETE",
       });
       const data = await res.json();

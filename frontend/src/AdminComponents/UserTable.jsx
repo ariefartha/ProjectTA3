@@ -65,7 +65,7 @@ const UserTable = ({
 
   useEffect(() => {
     const getInstructure = async () => {
-      const res = await fetch("/api/users/getallinstructure");
+      const res = await fetch("https://project-backend-six.vercel.app/api/users/getallinstructure");
       const data = await res.json();
 
       if (res.ok) {

@@ -48,7 +48,7 @@ const PaymentTabPanel = ({ payment, deletePayment, formatDateToIndonesian, setPa
   const updatePaymentStatus = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`/api/payment/status/${selectedPayment._id}`, {
+      const res = await fetch(`https://project-backend-six.vercel.app/api/payment/status/${selectedPayment._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"

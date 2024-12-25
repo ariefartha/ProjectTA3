@@ -48,7 +48,7 @@ const EditUser = () => {
         const getUserById = async () => {
             setDataLoading(true);
             try {
-                const response = await fetch(`/api/users/getuserbyid/${id}`, {
+                const response = await fetch(`https://project-backend-six.vercel.app/api/users/getuserbyid/${id}`, {
                     method: "GET"
                 });
                 const data = await response.json();
@@ -75,7 +75,7 @@ const EditUser = () => {
         setLoading(true);
         try {
             e.preventDefault();
-            const res = await fetch(`/api/users/update/${id}`, {
+            const res = await fetch(`https://project-backend-six.vercel.app/api/users/update/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -101,7 +101,7 @@ const EditUser = () => {
         setLoading(true);
         try {
             if (!window.confirm("Apakah anda yakin ingin menghapus sertifikat ini?")) return;
-            const res = await fetch(`/api/users/deletecertificate/${id}`, {
+            const res = await fetch(`https://project-backend-six.vercel.app/api/users/deletecertificate/${id}`, {
                 method: "DELETE",
             });
             const result = await res.json();
@@ -121,7 +121,7 @@ const EditUser = () => {
         setLoading(true);
         try {
             e.preventDefault();
-            const res = await fetch(`/api/users/uploadcertificate/${id}`, {
+            const res = await fetch(`https://project-backend-six.vercel.app/api/users/uploadcertificate/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

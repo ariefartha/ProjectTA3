@@ -44,7 +44,7 @@ const AdminDashboard = () => {
     const fetchSchedulesByDate = async () => {
       setLoading(true);
       try {
-        const res = await fetch("/api/schedule/allschedule");
+        const res = await fetch("https://project-backend-six.vercel.app/api/schedule/allschedule");
         const data = await res.json();
         if (res.ok) {
           setSchedules(data);
@@ -63,7 +63,7 @@ const AdminDashboard = () => {
     const getAllPayment = async () => {
       setLoadingPayment(true);
       try {
-        const res = await fetch("/api/payment/paymentlist");
+        const res = await fetch("https://project-backend-six.vercel.app/api/payment/paymentlist");
         const data = await res.json();
         if (res.ok) {
           setPayment(data);
@@ -83,7 +83,7 @@ const AdminDashboard = () => {
     try {
       if (!window.confirm("Apakah anda ingin menghapus data ini?")) return;
 
-      const res = await fetch(`api/payment/deletepayment/${id}`, {
+      const res = await fetch(`https://project-backend-six.vercel.app/api/payment/deletepayment/${id}`, {
         method: "DELETE",
       });
       const data = await res.json();
@@ -107,7 +107,7 @@ const AdminDashboard = () => {
     setLoading(true);
     try {
       if (!window.confirm("Apakah anda ingin menghapus testimoni ini?")) return;
-      const res = await fetch(`/api/testimoni/deletetestimoni/${id}`, {
+      const res = await fetch(`https://project-backend-six.vercel.app/api/testimoni/deletetestimoni/${id}`, {
         method: "DELETE",
       });
       const data = await res.json();
@@ -131,7 +131,7 @@ const AdminDashboard = () => {
   // Fungsi untuk mengambil daftar testimoni siswa
   useEffect(() => {
     const getTestimoni = async () => {
-      const res = await fetch("/api/testimoni/gettestimoni");
+      const res = await fetch("https://project-backend-six.vercel.app/api/testimoni/gettestimoni");
       const data = await res.json();
       if (res.ok) {
         setTestimoni(data);

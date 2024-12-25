@@ -15,7 +15,7 @@ const styles = {
 	global: (props) => ({
 		body: {
 			color: mode("gray.800", "whiteAlpha.900")(props),
-			bg: mode("#fff", "#101010")(props),
+			bg: mode("#fff", "#fff")(props),
       fontFamily: "'Poppins', sans-serif",
 		},
 	}),

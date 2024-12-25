@@ -39,7 +39,7 @@ const OathGoogle = () => {
       localStorage.setItem("userInfo", JSON.stringify(data));
       setUser(data);
     } catch (error) {
-      showToast("Error", error.message, "error");  // Memperbaiki akses error message
+      showToast("Error", error.message, "error"); 
     }
   };
 

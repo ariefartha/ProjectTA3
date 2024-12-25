@@ -26,7 +26,7 @@ const InstructureList = () => {
         const getAllUser = async () => {
             setLoading(true);
             try {
-                const res = await fetch("/api/users/getallinstructure");
+                const res = await fetch("https://project-backend-six.vercel.app/api/users/getallinstructure");
                 const data = await res.json();
                 if (res.ok) {
                     setInstructure(data);
@@ -44,7 +44,7 @@ const InstructureList = () => {
         try {
           if (!window.confirm("Apakah anda ingin menghapus data ini?")) return;
     
-          const res = await fetch(`/api/users/delete/${id}`, {
+          const res = await fetch(`https://project-backend-six.vercel.app/api/users/delete/${id}`, {
             method: "DELETE",
           });
           const data = await res.json();

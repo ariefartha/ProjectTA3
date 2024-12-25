@@ -25,7 +25,7 @@ const PacketCardList = () => {
   useEffect(() => {
     const getPackets = async () => {
       try {
-        const res = await fetch("/api/booking/getpacket");
+        const res = await fetch("https://project-backend-six.vercel.app/api/booking/getpacket");
         const data = await res.json();
         if (res.ok) {
           setPackets(data);
@@ -43,7 +43,7 @@ const PacketCardList = () => {
     try {
       if (!window.confirm("Apakah anda ingin menghapus data ini?")) return;
       setLoading(true);
-      const res = await fetch(`/api/booking/packet/${id}`, {
+      const res = await fetch(`https://project-backend-six.vercel.app/api/booking/packet/${id}`, {
         method: "DELETE",
       });
       const data = await res.json();
@@ -62,7 +62,7 @@ const PacketCardList = () => {
 
   const createPacket = async () => {
     try {
-      const res = await fetch("/api/booking/packet", {
+      const res = await fetch("https://project-backend-six.vercel.app/api/booking/packet", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

@@ -25,7 +25,7 @@ const Order = () => {
   useEffect(() => {
     const getOrder = async () => {
       try {
-        const res = await fetch("/api/booking/orders", {
+        const res = await fetch("https://project-backend-six.vercel.app/api/booking/orders", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -47,7 +47,7 @@ const Order = () => {
     setLoading(true);
     try {
       if (!window.confirm("Apakah anda yakin ingin menghapus pemesanan ini?")) return;
-      const res = await fetch("/api/booking/deleteorder", {
+      const res = await fetch("https://project-backend-six.vercel.app/api/booking/deleteorder", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -73,7 +73,7 @@ const Order = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch("/api/payment/manualpayment", {
+      const response = await fetch("https://project-backend-six.vercel.app/api/payment/manualpayment", {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
@@ -103,7 +103,7 @@ const Order = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch("/api/payment/midtranspayment", {
+      const response = await fetch("https://project-backend-six.vercel.app/api/payment/midtranspayment", {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
