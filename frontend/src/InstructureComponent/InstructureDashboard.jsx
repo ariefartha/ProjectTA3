@@ -40,7 +40,7 @@ const InstructureDashboard = () => {
     const getSchedule = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`/api/schedule/byuserid/${user._id}`, {
+        const res = await fetch(`https://project-backend-six.vercel.app/api/schedule/byuserid/${user._id}`, {
           method: 'GET',
         });
         const data = await res.json();
@@ -96,7 +96,7 @@ const InstructureDashboard = () => {
   const handleUpdateSchedule = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`/api/schedule/updatestatusbyinstructure/${user._id}`, {
+      const res = await fetch(`https://project-backend-six.vercel.app/api/schedule/updatestatusbyinstructure/${user._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

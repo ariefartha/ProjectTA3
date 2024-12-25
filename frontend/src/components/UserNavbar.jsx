@@ -37,7 +37,7 @@ export const UserNavbar = () => {
   const handleLogout = async () => {
     setLoading(true);
     try {
-      const res = await fetch("/api/users/logout", {
+      const res = await fetch("https://project-backend-six.vercel.app/api/users/logout", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

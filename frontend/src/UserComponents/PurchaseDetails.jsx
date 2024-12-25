@@ -18,7 +18,7 @@ const PurchaseDetails = () => {
   useEffect(() => {
     const getOrder = async () => {
       try {
-        const res = await fetch("/api/payment/mypaymentdetail", {
+        const res = await fetch("https://project-backend-six.vercel.app/api/payment/mypaymentdetail", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

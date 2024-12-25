@@ -60,7 +60,7 @@ const UserPage = () => {
   const handleCreateTestimoni = async () => {
     setLoading(true);
     try {
-      const res = await fetch("/api/testimoni/posttestimoni", {
+      const res = await fetch("https://project-backend-six.vercel.app/api/testimoni/posttestimoni", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -87,7 +87,7 @@ const UserPage = () => {
     const getSchedule = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`/api/schedule/byuserid/${user._id}`, {
+        const res = await fetch(`https://project-backend-six.vercel.app/api/schedule/byuserid/${user._id}`, {
           method: "GET",
         });
         const data = await res.json();

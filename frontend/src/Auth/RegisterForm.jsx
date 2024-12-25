@@ -38,7 +38,7 @@ export default function RegisterForm() {
 
     const handleSignup = async () => {
         try {
-            const res = await fetch("/api/users/signup", {
+            const res = await fetch("https://project-backend-six.vercel.app/api/users/signup", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -38,7 +38,7 @@ const UserPacket = () => {
   useEffect(() => {
     const getPackets = async () => {
       try {
-        const res = await fetch("/api/booking/getpacket");
+        const res = await fetch("https://project-backend-six.vercel.app/api/booking/getpacket");
         const data = await res.json();
         if (res.ok) {
           setPackets(data);
@@ -56,7 +56,7 @@ const UserPacket = () => {
     setLoading(true);
     try {
       if (!window.confirm("Apakah anda yakin membeli paket ini?")) return;
-      const order = await fetch("/api/booking/order", {
+      const order = await fetch("https://project-backend-six.vercel.app/api/booking/order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

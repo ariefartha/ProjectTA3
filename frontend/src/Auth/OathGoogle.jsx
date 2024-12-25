@@ -18,7 +18,7 @@ const OathGoogle = () => {
 
     try {
       const googleResponse = await signInWithPopup(auth, provider);
-      const res = await fetch("/api/users/google", {
+      const res = await fetch("https://project-backend-six.vercel.app/api/users/google", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
