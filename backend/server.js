@@ -25,7 +25,7 @@ cloudinary.config({
 //cors
 app.use(
   cors({
-    origin: "https://sukaprivatemengemudi.vercel.app/", 
+    origin: "*", 
     credentials: true, 
   })
 );
