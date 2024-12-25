@@ -1,15 +1,60 @@
+
 {
     "version": 2,
     "builds": [
-        {
-            "src": "server.js",
-            "use": "@vercel/node"
-        }
+      {
+        "src": "server.js",
+        "use": "@vercel/node"
+      }
     ],
     "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "server.js"
-        }
+      {
+        "src": "/api/users/(.*)",
+        "dest": "server.js"
+      },
+      {
+        "src": "/api/booking/(.*)",
+        "dest": "server.js"
+      },
+      {
+        "src": "/api/testimoni/(.*)",
+        "dest": "server.js"
+      },
+      {
+        "src": "/api/schedule/(.*)",
+        "dest": "server.js"
+      },
+      {
+        "src": "/api/payment/(.*)",
+        "dest": "server.js"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "server.js"
+      }
+    ],
+    "headers": [
+      {
+        "source": "/api/(.*)", 
+        "headers": [
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "https://sukaprivatemengemudi.vercel.app"
+          },
+          {
+            "key": "Access-Control-Allow-Methods",
+            "value": "GET, POST, PUT, DELETE, OPTIONS"
+          },
+          {
+            "key": "Access-Control-Allow-Headers",
+            "value": "Content-Type, Authorization, X-Requested-With"
+          },
+          {
+            "key": "Access-Control-Allow-Credentials",
+            "value": "true"
+          }
+        ]
+      }
     ]
-}
+  }
+  

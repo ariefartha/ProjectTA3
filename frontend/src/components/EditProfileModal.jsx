@@ -38,6 +38,7 @@ const EditProfileModal = ({ isOpen, onClose }) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(input),
+        credentials: "include",
       });
       const data = await res.json();
       if (data.error) {
