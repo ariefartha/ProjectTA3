@@ -3,11 +3,11 @@ import { createPacket, deleteMyOrder, deletePacket, getPacket, getUserOrder, ord
 import protectRoute from "../middlewares/protectRoute.js";
 
 const router = express.Router();
-router.post("/order/", protectRoute, orderPacket);
+router.post("/order/", orderPacket); //
 router.post("/packet", createPacket);
 router.post("/orders/", getUserOrder);
-router.get("/getpacket", protectRoute, getPacket);
+router.get("/getpacket", getPacket); //
 router.delete("/deleteorder/", deleteMyOrder);
-router.delete("/packet/:id", protectRoute, deletePacket); 
+router.delete("/packet/:id", deletePacket);  //
 
 export default router;

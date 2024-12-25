@@ -3,9 +3,9 @@ import { postTestimoni, getTestimoni, deleteTestimoni, getMyPost } from "../cont
 import protectRoute from "../middlewares/protectRoute.js";
 
 const router = express.Router();
-router.post("/posttestimoni", protectRoute, postTestimoni);
-router.get("/getmypost/:id", protectRoute, getMyPost);
+router.post("/posttestimoni", postTestimoni); //
+router.get("/getmypost/:id", getMyPost); //
 router.get("/gettestimoni", getTestimoni);
-router.delete("/deletetestimoni/:id", protectRoute, deleteTestimoni);
+router.delete("/deletetestimoni/:id", deleteTestimoni);//
 
 export default router;
