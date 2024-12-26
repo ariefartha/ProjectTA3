@@ -41,7 +41,6 @@ export default function LoginForm() {
               "Content-Type": "application/json",
             },
             body: JSON.stringify(inputs),
-            credentials: "include",
           });
           const data = await res.json();
           if (data.error) {
