@@ -5,11 +5,11 @@ const generateTokenAndSetCookie = (userId, res) => {
     expiresIn: "1d",
   });
   res.cookie("jwt", token, {
-    httpOnly: true, //this cookie can't be accessed by javascript in browser that make more secure
-    maxAge: 24 * 60 * 60 * 1000, // 1 day in milliseconds
-    sameSite: "strict", //CSRF attack prevention
+    httpOnly: true,
+    maxAge: 24 * 60 * 60 * 1000,
+    sameSite: "none", // Mengizinkan lintas domain
+    secure: true, // Gunakan untuk koneksi HTTPS
   });
-
   return token;
 };
 
