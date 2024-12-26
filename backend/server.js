@@ -25,12 +25,15 @@ cloudinary.config({
 //cors
 app.use(
   cors({
-    origin: "https://sukaprivatemengemudi.vercel.app", 
-    credentials: true, 
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    origin: "https://sukaprivatemengemudi.vercel.app", // Domain front-end
+    credentials: true, // Izinkan pengiriman cookie
+    methods: ["GET", "POST", "PUT", "DELETE"], // Batasi metode yang diperbolehkan
+    allowedHeaders: ["Content-Type", "Authorization"], // Header yang diperbolehkan
   })
 );
+
+// Middleware untuk menangani preflight requests
+app.options("*", cors());
 
 //midleware
 app.use(express.json({ limit: "50mb" })); //to parse JSON data in the req.body
