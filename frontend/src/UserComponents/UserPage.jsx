@@ -65,7 +65,7 @@ const UserPage = () => {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ postedBy: user._id, comments: testimoniText })
+        body: JSON.stringify({ postedBy: user._id, comments: testimoniText, username: user.username })
       });
       const data = await res.json();
       if (res.status === 201) {

@@ -14,7 +14,7 @@ import { RecoilRoot } from "recoil";
 const styles = {
 	global: (props) => ({
 		body: {
-			color: mode("gray.800", "whiteAlpha.900")(props),
+			color: mode("gray.800", "gray.800")(props),
 			bg: mode("#fff", "#fff")(props),
       fontFamily: "'Poppins', sans-serif",
 		},
@@ -22,7 +22,7 @@ const styles = {
 };
 
 const config = {
-	initialColorMode: "dark",
+	initialColorMode: "light",
 	useSystemColorMode: true,
 };
 
