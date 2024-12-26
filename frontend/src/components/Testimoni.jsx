@@ -8,7 +8,7 @@ const Testimoni = () => {
 
     useEffect(() => {
         const getTestimoni = async () => {
-            const res = await fetch("https://project-backend-six.vercel.app/api/testimoni/gettestimoni");
+            const res = await fetch("/api/api/testimoni/gettestimoni");
             const data = await res.json();
 
             if (res.ok) {

@@ -32,7 +32,7 @@ const EditProfileModal = ({ isOpen, onClose }) => {
     e.preventDefault(); 
     setUpdating(true);
     try {
-      const res = await fetch(`https://project-backend-six.vercel.app/api/users/updatemyprofile/${user._id}`, {
+      const res = await fetch(`/api/api/users/updatemyprofile/${user._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
