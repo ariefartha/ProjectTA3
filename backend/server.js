@@ -25,7 +25,7 @@ cloudinary.config({
 //cors
 app.use(
   cors({
-    origin: "https://sukaprivatemengemudi.vercel.app", 
+    origin: "https://sukaprivatemengemudi.vercel.app/", 
     credentials: true, 
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
@@ -33,7 +33,7 @@ app.use(
 );
 
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://sukaprivatemengemudi.vercel.app'); // Ganti dengan domain frontend
+  res.header('Access-Control-Allow-Origin', 'https://sukaprivatemengemudi.vercel.app/'); // Ganti dengan domain frontend
   res.header('Access-Control-Allow-Credentials', 'true');
   next();
 });
