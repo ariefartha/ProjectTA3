@@ -14,16 +14,16 @@ import { RecoilRoot } from "recoil";
 const styles = {
 	global: (props) => ({
 		body: {
-			color: mode("gray.800", "gray.800")(props),
-			bg: mode("#fff", "#fff")(props),
-      fontFamily: "'Poppins', sans-serif",
+			color: mode("gray.800", "gray.800")(props), // Ubah warna teks agar tetap cocok di mode light
+			bg: "#fff", // Paksa background selalu putih
+			fontFamily: "'Poppins', sans-serif",
 		},
 	}),
 };
 
 const config = {
-	initialColorMode: "light",
-	useSystemColorMode: true,
+	initialColorMode: "light", 
+	useSystemColorMode: false, 
 };
 
 const colors = {

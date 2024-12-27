@@ -36,6 +36,7 @@ const EditProfileModal = ({ isOpen, onClose }) => {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
+          "credentials": "include",
         },
         body: JSON.stringify(input),
       });
