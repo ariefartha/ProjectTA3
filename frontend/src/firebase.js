@@ -6,9 +6,9 @@ import { initializeApp } from "firebase/app";
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyAErqlHzoTlG5m8dCCn1dwcINoIardWQb8",
-  authDomain: "https://sukaprivatemengemudi.vercel.app",
+  authDomain: "sukaprivatemengemudi.firebaseapp.com",
   projectId: "sukaprivatemengemudi",
-  storageBucket: "sukaprivatemengemudi.appspot.com",
+  storageBucket: "sukaprivatemengemudi.firebasestorage.app",
   messagingSenderId: "1047142941214",
   appId: "1:1047142941214:web:682b2d68b7efbe59cae40f"
 };
