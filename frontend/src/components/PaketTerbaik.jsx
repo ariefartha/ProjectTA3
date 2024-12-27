@@ -76,7 +76,7 @@ const PaketTerbaik = () => {
                             <CardBody textAlign={"left"}>
                                 <List spacing={3}>
                                     {paket.list.map((item, i) => (
-                                        <ListItem>
+                                        <ListItem color="1A202C">
                                             <ListIcon as={MdCheckCircle} color="green.500" />
                                             {item}
                                         </ListItem>
