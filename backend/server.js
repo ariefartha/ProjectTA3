@@ -32,6 +32,13 @@ app.use(
   })
 );
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://sukaprivatemengemudi.vercel.app'); // Ganti dengan domain frontend
+  res.header('Access-Control-Allow-Credentials', 'true');
+  next();
+});
+
+
 //midleware
 app.use(express.json({ limit: "50mb" })); //to parse JSON data in the req.body
 app.use(express.urlencoded({ extended: true })); //to parse form data in the req.body
