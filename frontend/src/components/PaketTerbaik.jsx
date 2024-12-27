@@ -74,9 +74,9 @@ const PaketTerbaik = () => {
                                 </Flex>
                             </CardHeader>
                             <CardBody textAlign={"left"}>
-                                <List spacing={3}>
+                                <List spacing={3} color="1A202C">
                                     {paket.list.map((item, i) => (
-                                        <ListItem color="1A202C">
+                                        <ListItem>
                                             <ListIcon as={MdCheckCircle} color="green.500" />
                                             {item}
                                         </ListItem>
