@@ -59,7 +59,7 @@ const EditProfileModal = ({ isOpen, onClose }) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
-      <ModalContent bg={"white"}>
+      <ModalContent>
         <ModalHeader
           bgGradient="linear(to-l, #7928CA, #FF0080)"
           bgClip="text"
