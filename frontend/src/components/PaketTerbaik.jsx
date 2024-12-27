@@ -61,9 +61,9 @@ const PaketTerbaik = () => {
                         _hover={{ transform: "scale(1.05)" }}
                         
                     >
-                        <Card justifyContent={"center"} alignItems={"center"}>
+                        <Card justifyContent={"center"} alignItems={"center"} bg={"white"}>
                             <CardHeader textAlign={"center"}>
-                                <Heading size="md">{paket.paket}</Heading>
+                                <Heading color={"#000"} size="md">{paket.paket}</Heading>
                                 <Flex alignItems="flex-start" justifyContent="center" mt={10}>
                                     <Text fontSize="sm" color="blue.600" order={1}>
                                         {paket.rupiah}

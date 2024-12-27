@@ -14,7 +14,7 @@ router.post("/addinstructure", AddInstructure);
 router.post("/logout", logoutUser);
 router.put("/update/:id", updateUserById);
 router.put("/uploadcertificate/:id", uploadUserCertificate);
-router.put("/updatemyprofile", updateMyProfile); //
+router.put("/updatemyprofile/:id", updateMyProfile); //
 router.delete("/delete/:id", deleteUser);
 router.delete("/deletecertificate/:id", deleteCertificate);
 
