@@ -12,7 +12,6 @@ import {
     Text,
     useColorModeValue,
 } from '@chakra-ui/react'
-import { Navbar } from "../components/Navbar"
 import { useState } from 'react'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 import { Link } from 'react-router-dom'
@@ -20,7 +19,6 @@ import useShowToast from '../hooks/useShowToast.js';
 import { useSetRecoilState } from 'recoil'
 import userAtom from '../atoms/userAtom';
 import OathGoogle from './OathGoogle'
-import { FcGoogle } from "react-icons/fc";
 
 export default function LoginForm() {
     const [showPassword, setShowPassword] = useState(false);
@@ -33,28 +31,32 @@ export default function LoginForm() {
     })
     
     const handleLogin = async () => {
-        setLoading(true)
+        setLoading(true);
         try {
-          const res = await fetch("https://project-backend-six.vercel.app/api/users/login", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(inputs),
-          });
-          const data = await res.json();
-          if (data.error) {
-            showToast("Error", data.error, "error")
-            return;
-          }
-          localStorage.setItem("userInfo", JSON.stringify(data));
-          setUser(data);
+            const res = await fetch("https://project-backend-six.vercel.app/api/users/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "credentials": "include", // Menyertakan cookie dalam permintaan
+                },
+                body: JSON.stringify(inputs),
+            });
+            
+            const data = await res.json();
+            if (data.error) {
+                showToast("Error", data.error, "error");
+                return;
+            }
+    
+            // Jika token disimpan di cookie oleh server, Anda tidak perlu menyimpannya di localStorage
+            localStorage.setItem("userInfo", JSON.stringify(data));
+            setUser (data);
         } catch (error) {
-          showToast("Error", error, "error")
+            showToast("Error", error, "error");
         } finally {
             setLoading(false);
         }
-      }
+    }
 
     return (
         <Flex
