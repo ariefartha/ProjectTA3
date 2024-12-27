@@ -159,7 +159,7 @@ const UserPage = () => {
             </Flex>
           <Modal isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />
-            <ModalContent>
+            <ModalContent bg={"white"}>
               <ModalHeader>Testimoni</ModalHeader>
               <ModalCloseButton />
               <ModalBody pb={6}>

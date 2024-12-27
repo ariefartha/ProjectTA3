@@ -48,6 +48,7 @@ const OathGoogle = () => {
       variant={'outline'}
       leftIcon={<FcGoogle />}
       size={'sm'}
+      color={"1A202C"}
       onClick={handlegoogleLogin}
     >
       Masuk dengan Google
