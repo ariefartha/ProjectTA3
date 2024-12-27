@@ -265,7 +265,7 @@ const deleteCertificate = async (req, res) => {
 };
 
 const updateMyProfile = async (req, res) => {
-  const userId = req.user.id;
+  const userId = req.body;
   try {
     const { username, email, address, phone } = req.body;
     let user = await User.findById(userId);
