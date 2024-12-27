@@ -31,32 +31,29 @@ export default function LoginForm() {
     })
     
     const handleLogin = async () => {
-        setLoading(true);
+        setLoading(true)
         try {
-            const res = await fetch("https://project-backend-six.vercel.app/api/users/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "credentials": "include", // Menyertakan cookie dalam permintaan
-                },
-                body: JSON.stringify(inputs),
-            });
-            
-            const data = await res.json();
-            if (data.error) {
-                showToast("Error", data.error, "error");
-                return;
-            }
-    
-            // Jika token disimpan di cookie oleh server, Anda tidak perlu menyimpannya di localStorage
-            localStorage.setItem("userInfo", JSON.stringify(data));
-            setUser (data);
+          const res = await fetch("https://project-backend-six.vercel.app/api/users/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "credentials": "include",
+            },
+            body: JSON.stringify(inputs),
+          });
+          const data = await res.json();
+          if (data.error) {
+            showToast("Error", data.error, "error")
+            return;
+          }
+          localStorage.setItem("userInfo", JSON.stringify(data));
+          setUser(data);
         } catch (error) {
-            showToast("Error", error, "error");
+          showToast("Error", error, "error")
         } finally {
             setLoading(false);
         }
-    }
+      }
 
     return (
         <Flex
