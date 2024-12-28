@@ -84,7 +84,7 @@ const PaketTerbaik = () => {
                             </CardBody>
                             <CardFooter>
                                 <Link to={"/auth/login"}>
-                                <Button bg={useColorModeValue('twitter', 'twitter')} >Pilih Paketx</Button>
+                                <Button colorScheme="twitter" >Pilih Paket</Button>
                                 </Link>
                             </CardFooter>
                         </Card>

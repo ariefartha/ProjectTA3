@@ -78,8 +78,6 @@ export default function RegisterForm() {
                 </Stack>
                 <Box
                     rounded={'lg'}
-                    bg={useColorModeValue('white', 'white')}
-                    borderColor={useColorModeValue('#e2e8f0', '#e2e8f0')}
                     boxShadow={'lg'}
                     p={8}>
                     <Stack spacing={1}>
