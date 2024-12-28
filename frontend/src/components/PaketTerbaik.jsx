@@ -11,7 +11,7 @@ import {
     Button,
     ListItem,
     List,
-    useColorMode
+    useColorModeValue
 } from "@chakra-ui/react";
 import { MdCheckCircle } from "react-icons/md";
 import { Link } from "react-router-dom";
