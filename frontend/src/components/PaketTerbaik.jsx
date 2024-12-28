@@ -11,8 +11,7 @@ import {
     Button,
     ListItem,
     List,
-    Divider,
-    Center
+    useColorMode
 } from "@chakra-ui/react";
 import { MdCheckCircle } from "react-icons/md";
 import { Link } from "react-router-dom";
@@ -61,7 +60,7 @@ const PaketTerbaik = () => {
                         _hover={{ transform: "scale(1.05)" }}
                         
                     >
-                        <Card justifyContent={"center"} alignItems={"center"} bg={"white"}>
+                        <Card justifyContent={"center"} alignItems={"center"} bg={useColorModeValue('white', 'white')}>
                             <CardHeader textAlign={"center"}>
                                 <Heading color={"#000"} size="md">{paket.paket}</Heading>
                                 <Flex alignItems="flex-start" justifyContent="center" mt={10}>
@@ -76,7 +75,7 @@ const PaketTerbaik = () => {
                             <CardBody textAlign={"left"}>
                                 <List spacing={3}>
                                     {paket.list.map((item, i) => (
-                                        <ListItem color="#1A202C">
+                                        <ListItem color={useColorModeValue('#1A202C', '#1A202C')}>
                                             <ListIcon as={MdCheckCircle} color="green.500" />
                                             {item}
                                         </ListItem>

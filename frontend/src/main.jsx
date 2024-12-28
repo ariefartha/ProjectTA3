@@ -23,14 +23,14 @@ const styles = {
 
 const config = {
 	initialColorMode: "light", 
-	useSystemColorMode: false, 
+	useSystemColorMode: true, 
 };
 
 const colors = {
 	gray: {
 		light: "#616161",
 		dark: "#1e1e1e",
-	},
+	},	
 };
 
 const theme = extendTheme({ config, styles, colors });
