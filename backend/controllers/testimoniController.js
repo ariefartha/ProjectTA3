@@ -5,48 +5,48 @@ import Testimoni from "../models/testimoniModel.js";
 const postTestimoni = async (req, res) => {
   try {
     const { postedBy, comments } = req.body;
-    const username = req.user.username;
+    const { username, _id: userId, graduated } = req.user;
+
+    // Validasi input
+    if (!postedBy || !comments) {
+      return res.status(400).json({ error: "Form perlu diisi terlebih dahulu" });
+    }
+
+    if (comments.length > 150) {
+      return res.status(400).json({ error: "Kalimat harus kurang dari 150 karakter" });
+    }
 
     const user = await User.findById(postedBy);
     if (!user) {
-      return res.status(404).json({ error: "User tidak di temukan" });
+      return res.status(404).json({ error: "User tidak ditemukan" });
     }
 
-    if (!postedBy || !comments) {
-      return res
-        .status(400)
-        .json({ error: "Form Perlu di isi terlebih dahulu" });
+    if (user._id.toString() !== userId.toString()) {
+      return res.status(401).json({ error: "Unauthorized" });
     }
 
-    if (user._id.toString() !== req.user._id.toString()) {
-        return res.status(401).json({error: "Unautorized"});
-    }
-
-    const maxLength = 150;
-    if (text.length > maxLength) {
-      return res
-        .status(400)
-        .json({ error: `kalimat harus kurang dari ${maxLength} kata` });
-    }
-
-    if (user.graduated === false) {
-      return res.status(400).json({ error: "Anda hanya bisa melakukan testimoni setelah lulus mengikuti kursus mengemudi" });
+    if (!graduated) {
+      return res.status(400).json({
+        error: "Anda hanya bisa memberikan testimoni setelah lulus mengikuti kursus mengemudi",
+      });
     }
 
     const checkTestimoni = await Testimoni.findOne({ postedBy: user._id });
     if (checkTestimoni) {
-      return res.status(400).json({ error: "Anda sudah melakukan testimoni sebelumnya" });
+      return res.status(400).json({ error: "Anda sudah memberikan testimoni sebelumnya" });
     }
 
+    // Simpan testimoni baru
     const newTestimoni = new Testimoni({ postedBy, comments, username });
-
     await newTestimoni.save();
-    res.status(201).json({ message: "Testimoni anda berhasil di kirim" });
+
+    res.status(201).json({ message: "Testimoni berhasil dikirim" });
   } catch (err) {
-    res.status(500).json({ error: err.message });
-    console.log(err);
+    console.error(err);
+    res.status(500).json({ error: "Terjadi kesalahan pada server" });
   }
 };
+
 
 const deleteTestimoni = async (req, res) => {
   try {

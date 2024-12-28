@@ -58,30 +58,34 @@ const UserPage = () => {
   }
 
   const handleCreateTestimoni = async () => {
+    if (!user || !user._id || !user.username) {
+      showToast("Error", "Data user tidak ditemukan, silakan login ulang.", "error");
+      return;
+    }
+  
     setLoading(true);
     try {
       const res = await fetch("https://project-backend-six.vercel.app/api/testimoni/posttestimoni", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ postedBy: user._id, comments: testimoniText })
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ postedBy: user._id, comments: testimoniText }),
       });
+  
       const data = await res.json();
       if (res.status === 201) {
-        showToast("Sukses😊", data.message, "success");
+        showToast("Sukses 😊", data.message, "success");
         onClose();
         setTestimoniText(""); 
       } else {
-        showToast("Gagal!", data.error, "error");
-        onClose();
+        showToast("Gagal 😞", data.error || "Terjadi kesalahan.", "error");
       }
     } catch (error) {
-      showToast("Gagal!", error.message, "error");
+      showToast("Error", error.message, "error");
     } finally {
       setLoading(false);
     }
   };
+  
   
   useEffect(() => {
     const getSchedule = async () => {
