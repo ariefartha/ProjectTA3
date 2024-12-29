@@ -33,10 +33,11 @@ const EditProfileModal = ({ isOpen, onClose }) => {
     setUpdating(true);
     try {
       const res = await fetch(`https://project-backend-six.vercel.app/api/users/updatemyprofile/${user._id}`, {
+        credentials : 'include',
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          "credentials": "include",
+          "Access-Control-Allow-Credentials": true,
         },
         body: JSON.stringify(input),
       });

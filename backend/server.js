@@ -23,20 +23,32 @@ cloudinary.config({
 });
 
 //cors
-app.use(
-  cors({
-    origin: "https://sukaprivatemengemudi.vercel.app/", 
-    credentials: true, 
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-  })
-);
+// app.use(
+//   cors({
+//     origin: "https://sukaprivatemengemudi.vercel.app/", 
+//     credentials: true, 
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//     allowedHeaders: ['Content-Type', 'Authorization'],
+//   })
+// );
+const allowedOrigins = ['http://localhost:5000', 'https://sukaprivatemengemudi.vercel.app'];
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://sukaprivatemengemudi.vercel.app/'); // Ganti dengan domain frontend
-  res.header('Access-Control-Allow-Credentials', 'true');
-  next();
-});
+app.use(cors({
+  credentials: true,
+  origin: (origin, callback) => {
+      if (allowedOrigins.includes(origin) || !origin) {
+          callback(null, true);
+      } else {
+          callback(new Error('Not allowed by CORS'));
+      }
+  }
+}));
+
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', 'https://sukaprivatemengemudi.vercel.app/'); // Ganti dengan domain frontend
+//   res.header('Access-Control-Allow-Credentials', 'true');
+//   next();
+// });
 
 
 //midleware

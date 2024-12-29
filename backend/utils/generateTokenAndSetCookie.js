@@ -6,10 +6,10 @@ const generateTokenAndSetCookie = (userId, res) => {
   });
   res.cookie("jwt", token, {
     httpOnly: true,
+    secure: true,
+    sameSite: 'None',
     path: "/",
     maxAge: 24 * 60 * 60 * 1000,
-    sameSite: "none", // Mengizinkan lintas domain
-    secure: true, // Gunakan untuk koneksi HTTPS
   });
   return token;
 };
