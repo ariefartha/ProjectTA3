@@ -71,7 +71,7 @@ const UserPage = () => {
       if (res.status === 201) {
         showToast("Sukses😊", data.message, "success");
         onClose();
-        setTestimoniText(""); 
+        setTestimoniText("");
       } else {
         showToast("Gagal!", data.error, "error");
         onClose();
@@ -82,7 +82,7 @@ const UserPage = () => {
       setLoading(false);
     }
   };
-  
+
   useEffect(() => {
     const getSchedule = async () => {
       setLoading(true);
@@ -116,13 +116,13 @@ const UserPage = () => {
 
   // Fungsi untuk menghitung total durasi
   const calculateDuration = (startDate, endDate) => {
-    const start = new Date(startDate); 
-    const end = new Date(endDate); 
-    const durationInMilliseconds = end - start; 
-    const durationInMinutes = Math.floor(durationInMilliseconds / 1000 / 60); 
-    const hours = Math.floor(durationInMinutes / 60); 
-    const minutes = durationInMinutes % 60; 
-    return `${hours} jam ${minutes} menit`; 
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    const durationInMilliseconds = end - start;
+    const durationInMinutes = Math.floor(durationInMilliseconds / 1000 / 60);
+    const hours = Math.floor(durationInMinutes / 60);
+    const minutes = durationInMinutes % 60;
+    return `${hours} jam ${minutes} menit`;
   };
 
   return (
@@ -137,26 +137,30 @@ const UserPage = () => {
       ) : (
         <Box mb={8} px={{ base: "2", md: "10" }}>
           <Flex justifyContent="space-between" alignItems="center">
-          <Button
-            size={{base:"sm", md: "md"}}
-            p={2}
-            my={2}
-            leftIcon={<GoCommentDiscussion />}
-            colorScheme='twitter'
-            variant='outline'
-            onClick={onOpen}>Kirim Testimoni
+            <Button
+              size={{ base: "sm", md: "md" }}
+              p={2}
+              my={2}
+              leftIcon={<GoCommentDiscussion />}
+              colorScheme="twitter"
+              variant="outline"
+              onClick={onOpen}
+              display={{ base: "flex", md: "inline-flex" }} 
+            >
+              <Text display={{ base: "none", md: "inline" }}>Kirim Testimoni</Text> 
             </Button>
+
             <Flex gap={"2"} p={2}>
               <HStack>
                 <Avatar size={"sm"} src='/status.png' />
-                <Text fontSize={{base: 'sm', md: "md"}} color={"gray"} fontWeight={"bold"}>Status: {user.graduated ? "Lulus" : "Belum Lulus"}</Text>
+                <Text fontSize={{ base: 'sm', md: "md" }} color={"gray"} fontWeight={"bold"}>Status: {user.graduated ? "Lulus" : "Belum Lulus"}</Text>
               </HStack>
               <HStack p={2}>
                 <Avatar size={"sm"} src="/hands.png" />
-                <Text fontSize={{base: 'sm', md: "md"}} color={"gray"} fontWeight={"bold"}>Total Kursus: {user.totalStudy}</Text>
+                <Text fontSize={{ base: 'sm', md: "md" }} color={"gray"} fontWeight={"bold"}>Total Kursus: {user.totalStudy}</Text>
               </HStack>
             </Flex>
-            </Flex>
+          </Flex>
           <Modal isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />
             <ModalContent>

@@ -39,7 +39,7 @@
         "headers": [
           {
             "key": "Access-Control-Allow-Origin",
-            "value": "https://sukaprivatemengemudi.vercel.app"
+            "value": ["http://localhost:5000", "https://sukaprivatemengemudi.vercel.app"]
           },
           {
             "key": "Access-Control-Allow-Methods",
