@@ -10,7 +10,6 @@ import {
     Button,
     Heading,
     Text,
-    useColorModeValue,
 } from '@chakra-ui/react'
 import { useState } from 'react'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
@@ -34,10 +33,10 @@ export default function LoginForm() {
         setLoading(true)
         try {
           const res = await fetch("https://project-backend-six.vercel.app/api/users/login", {
-            method: 'POST',
-            credentials: 'include',
+            method: "POST",
             headers: {
               "Content-Type": "application/json",
+              "credentials": "include",
               "Access-Control-Allow-Credentials": true,
             },
             body: JSON.stringify(inputs),

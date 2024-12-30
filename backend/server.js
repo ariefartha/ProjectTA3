@@ -16,20 +16,17 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
-// Daftar origin yang diizinkan
-const allowedOrigins = ['https://sukaprivatemengemudi.vercel.app'];
-
 // Middleware CORS
+const allowedOrigins = ['https://sukaprivatemengemudi.vercel.app'];
 app.use(cors({
   origin: (origin, callback) => {
-    // Izinkan permintaan dari origin yang diizinkan
     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
     }
   },
-  credentials: true // Izinkan pengiriman kredensial (cookie)
+  credentials: true 
 }));
 
 // Konfigurasi Cloudinary
