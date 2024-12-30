@@ -17,9 +17,9 @@ const postTestimoni = async (req, res) => {
         .json({ error: "Form Perlu di isi terlebih dahulu" });
     }
 
-    if (user._id.toString() !== req.user._id.toString()) {
-        return res.status(401).json({error: "Unautorized"});
-    }
+    // if (user._id.toString() !== req.user._id.toString()) {
+    //     return res.status(401).json({error: "Unautorized"});
+    // }
 
     const maxLength = 150;
     if (text.length > maxLength) {
