@@ -29,34 +29,40 @@ export default function LoginForm() {
         username: "",
         password: "",
     })
+    
+    const handleLogin = async () => {
+        setLoading(true)
+        try {
+          const res = await fetch("https://project-backend-six.vercel.app/api/users/login", {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Credentials": true,
+            },
+            body: JSON.stringify(inputs),
+          });
+          const data = await res.json();
+          if (data.error) {
+            showToast("Error", data.error, "error")
+            return;
+          }
+          localStorage.setItem("userInfo", JSON.stringify(data));
+          setUser(data);
+        } catch (error) {
+          showToast("Error", error, "error")
+        } finally {
+            setLoading(false);
+        }
+      }
 
-    fetch('https://project-backend-six.vercel.app/api/users/login', {
-        method: 'POST',
-        credentials: 'include', // Ini penting untuk mengizinkan pengiriman cookie
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ username, password }) // Ganti dengan data yang sesuai
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Success:', data);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
     return (
         <Flex
             fontFamily={"Poppins"}
             minH={'100vh'}
             align={'center'}
             justify={'center'}>
-            <Stack spacing={8} mx={'auto'} maxW={'lg'} px={6}>
+            <Stack spacing={8} mx={'auto'} maxW={'lg'}  px={6}>
                 <Stack align={'center'}>
                     <Heading fontSize={'4xl'}
                         textAlign={'center'}
@@ -105,7 +111,7 @@ export default function LoginForm() {
                                 Masuk
                             </Button>
                         </Stack>
-                        <OathGoogle />
+                       <OathGoogle />
                         <Stack>
                             <Text align={'center'}>
                                 belum punya akun? <Link to={"/auth/register"} >Daftar</Link>
