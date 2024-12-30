@@ -34,10 +34,10 @@ export default function LoginForm() {
         setLoading(true)
         try {
           const res = await fetch("https://project-backend-six.vercel.app/api/users/login", {
-            method: "POST",
+            method: 'POST',
+            credentials: 'include',
             headers: {
               "Content-Type": "application/json",
-              "credentials": "include",
               "Access-Control-Allow-Credentials": true,
             },
             body: JSON.stringify(inputs),
