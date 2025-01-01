@@ -137,7 +137,7 @@ const UserPage = () => {
       ) : (
         <Box mb={8} px={{ base: "2", md: "10" }}>
           <Flex justifyContent="space-between" alignItems="center">
-            <Button
+            {/* <Button
               size={{ base: "sm", md: "md" }}
               p={2}
               my={2}
@@ -148,7 +148,7 @@ const UserPage = () => {
               display={{ base: "flex", md: "inline-flex" }} 
             >
               <Text display={{ base: "none", md: "inline" }}>Kirim Testimoni</Text> 
-            </Button>
+            </Button> */}
 
             <Flex gap={"2"} p={2}>
               <HStack>

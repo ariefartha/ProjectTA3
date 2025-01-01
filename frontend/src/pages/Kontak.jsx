@@ -8,7 +8,7 @@ const Kontak = () => {
     return (
 
         <Flex fontFamily={"Poppins"} mt={{ base: "10", md: "20" }} justifyContent={"center"} gap={10} display={{ base: "column", md: "flex" }}>
-            <VStack p={"20px"} alignItems={"left"}  w={{ base: "sm", md: "md" }}>
+            <VStack p={"20px"} alignItems={"left"}  w={{ base: "xs", md: "md" }}>
                 <Heading mb={4} color={"gray.600"} fontSize={{ base: "20", md: "30" }}>Hubungi Kami</Heading>
                 <Flex gap={5} >
                     <IoIosCall size={30} />
@@ -42,7 +42,7 @@ const Kontak = () => {
 
             <Box
                 p={"20px"}
-                w={{ base: "sm", md: "md" }}
+                w={{ base: "xs", md: "md" }}
             >
                 <iframe
                     className="maps"

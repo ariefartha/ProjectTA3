@@ -30,7 +30,9 @@ const EditUser = () => {
     const showToast = useShowToast();
     const { id } = useParams();
     const { handleUpload, uploadImage } = uploadFile();
-    const [loading, setLoading] = useState(false);
+
+    const [loading, setLoading] = useState(false); 
+    const [deleteLoading, setDeleteLoading] = useState(false); 
     const [dataLoading, setDataLoading] = useState(true);
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [data, setData] = useState(null);
@@ -98,7 +100,7 @@ const EditUser = () => {
     }
 
     const deleteCertificate = async () => {
-        setLoading(true);
+        setDeleteLoading(true);
         try {
             if (!window.confirm("Apakah anda yakin ingin menghapus sertifikat ini?")) return;
             const res = await fetch(`https://project-backend-six.vercel.app/api/users/deletecertificate/${id}`, {
@@ -113,7 +115,7 @@ const EditUser = () => {
         } catch (error) {
             showToast("Gagal", error.message, "error");
         } finally {
-            setLoading(false);
+            setDeleteLoading(false);
         }
     }
 
@@ -210,7 +212,7 @@ const EditUser = () => {
                             _placeholder={{ color: 'gray.500' }}
                             value={input.phone}
                             onChange={(e) => setInput({ ...input, phone: e.target.value })}
-                            type='text'
+                            type='number'
                         />
                     </FormControl>
                     <FormControl>
@@ -237,7 +239,7 @@ const EditUser = () => {
                                         Lihat
                                     </Button>
                                 </a>
-                                <Button leftIcon={<MdDelete />} isLoading={loading} onClick={deleteCertificate} as="span" colorScheme="red" size="sm">
+                                <Button leftIcon={<MdDelete />} isLoading={deleteLoading} onClick={deleteCertificate} as="span" colorScheme="red" size="sm">
                                     Hapus Sertifikat
                                 </Button>
                             </Flex>
@@ -277,6 +279,7 @@ const EditUser = () => {
                             colorScheme='twitter'
                             w="full"
                             type='submit'
+                            isLoading={loading}
                         >
                             Simpan
                         </Button>
