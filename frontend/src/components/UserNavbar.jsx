@@ -132,7 +132,7 @@ export const UserNavbar = () => {
               </Center>
               <br />
               <MenuDivider />
-              <MenuItem onClick={onOpen}>Edit Profile</MenuItem>
+              {/* <MenuItem onClick={onOpen}>Edit Profile</MenuItem> */}
               <MenuItem onClick={handleLogout}>Keluar</MenuItem>
             </MenuList>
           </Menu>

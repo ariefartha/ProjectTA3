@@ -177,7 +177,7 @@ export const AdminNavbar = () => {
                             </Center>
                             <br />
                             <MenuDivider />
-                            <MenuItem>Edit Profile</MenuItem>
+                            {/* <MenuItem>Edit Profile</MenuItem> */}
                             {user.role === 'admin' && (
                                 <MenuItem onClick={onOpen}>Tambah Instruktur</MenuItem>
                             )}
@@ -310,6 +310,85 @@ export const AdminNavbar = () => {
                         </Button>
                     </Link>
                 </Flex>
+                <Menu>
+                        <MenuButton
+                            as={Button}
+                            rounded={'full'}
+                            variant={'link'}
+                            cursor={'pointer'}
+                            minW={0}>
+                            <Avatar
+                                size={'md'}
+                            />
+                        </MenuButton>
+                        <MenuList alignItems={'center'}>
+                            <br />
+                            <Center>
+                                <Avatar size={'md'} />
+                            </Center>
+                            <br />
+                            <Center>
+                                <Flex gap={1}>
+                                    <Text>Welcome</Text>
+                                    <Text fontWeight={"bold"}>{user.username}</Text>
+                                </Flex>
+                            </Center>
+                            <br />
+                            <MenuDivider />
+                            {/* <MenuItem>Edit Profile</MenuItem> */}
+                            {user.role === 'admin' && (
+                                <MenuItem onClick={onOpen}>Tambah Instruktur</MenuItem>
+                            )}
+                            <Modal isOpen={isOpen} onClose={onClose} size={"sm"}>
+                                <ModalOverlay />
+                                <ModalContent>
+                                    <ModalHeader bgGradient='linear(to-l, #7928CA, #FF0080)' bgClip='text'>Tambah Instruktur</ModalHeader>
+                                    <ModalCloseButton />
+                                    <ModalBody>
+                                        <FormControl isRequired pt={2}>
+                                            Nama Instruktur
+                                            <Input
+                                                type='text'
+                                                onChange={(e) => setInputs({ ...inputs, username: e.target.value })}
+                                                value={inputs.username}
+                                            />
+                                        </FormControl>
+                                        <FormControl isRequired pt={2}>
+                                            Email
+                                            <Input
+                                                type='email'
+                                                onChange={(e) => setInputs({ ...inputs, email: e.target.value })}
+                                                value={inputs.email}
+                                            />
+                                        </FormControl>
+                                        <FormControl isRequired pt={2}>
+                                            Password
+                                            <Input
+                                                type='password'
+                                                onChange={(e) => setInputs({ ...inputs, password: e.target.value })}
+                                                value={inputs.password}
+                                            />
+                                        </FormControl>
+                                        <FormControl isRequired pt={2}>
+                                            Telpon/Wa
+                                            <Input
+                                                type='text'
+                                                onChange={(e) => setInputs({ ...inputs, phone: e.target.value })}
+                                                value={inputs.phone}
+                                            />
+                                        </FormControl>
+                                    </ModalBody>
+                                    <ModalFooter>
+                                        <Button colorScheme='green' mr={3} onClick={onClose}>
+                                            Batal
+                                        </Button>
+                                        <Button isLoading={loading} colorScheme='twitter' onClick={HandleAddInstructure}>Tambah</Button>
+                                    </ModalFooter>
+                                </ModalContent>
+                            </Modal>
+                            <MenuItem onClick={handleLogout}>Keluar</MenuItem>
+                        </MenuList>
+                    </Menu>
             </Flex>
         </Flex>
     );
