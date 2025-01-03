@@ -277,11 +277,11 @@ const Order = () => {
                 <Text fontSize="xs" as="mark" fontWeight={"bold"} textAlign="center">
                   Silahkan transfer ke No.Rek berikut:
                 </Text>
-                <Text fontSize="xs" color="gray.500" textAlign="center">
+                {/* <Text fontSize="xs" color="gray.500" textAlign="center">
                   BNI: 1122334455, atas nama Suka Private Mengemudi
-                </Text>
+                </Text> */}
                 <Text fontSize="xs" color="gray.500" textAlign="center">
-                  BRI: 1122334455, atas nama Suka Private Mengemudi
+                  BRI: 024801031488502, atas nama Suka Private Mengemudi
                 </Text>
                 <ModalCloseButton />
                 <ModalBody>
