@@ -11,8 +11,6 @@ import {
     Button,
     Heading,
     Text,
-    useColorModeValue,
-    Select,
 } from '@chakra-ui/react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
@@ -23,6 +21,7 @@ import userAtom from '../atoms/userAtom';
 import OathGoogle from './OathGoogle.jsx';
 
 export default function RegisterForm() {
+    const [loading, setLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const [inputs, setInputs] = useState({
         username: "",
@@ -37,6 +36,7 @@ export default function RegisterForm() {
     const navigate = useNavigate();  // Hook untuk melakukan navigasi
 
     const handleSignup = async () => {
+        setLoading(true)
         try {
             const res = await fetch("https://project-backend-six.vercel.app/api/users/signup", {
                 method: "POST",
@@ -52,12 +52,11 @@ export default function RegisterForm() {
             } else {
                 showToast("Success", data.message, "success");
             }
-
-            // Redirect ke halaman login jika tidak ada error
             navigate('/auth/login');
-
         } catch (error) {
             showToast("Error", error.message, "error");
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -130,7 +129,7 @@ export default function RegisterForm() {
                         </FormControl>
                         <Stack spacing={10} pt={2}>
                             <Button
-                                loadingText="Submitting"
+                                isLoading={loading}
                                 size="lg"
                                 bg={'blue.400'}
                                 color={'white'}
