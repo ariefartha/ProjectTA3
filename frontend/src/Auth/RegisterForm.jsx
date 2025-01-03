@@ -117,7 +117,7 @@ export default function RegisterForm() {
                             <Box>
                                 <FormControl isRequired>
                                     <FormLabel>No.Tlpn/WhatsApp</FormLabel>
-                                    <Input type="text"
+                                    <Input type="number"
                                         onChange={(e) => setInputs({ ...inputs, phone: e.target.value })}
                                         value={inputs.phone} />
                                 </FormControl>
