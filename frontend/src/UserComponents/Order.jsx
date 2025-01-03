@@ -91,6 +91,7 @@ const Order = () => {
       } else {
         showToast("Gagal!", result.error, "error");
       }
+      navigate("/user/mypurchase");
     } catch (error) {
       showToast("Gagal!", error.message, "error");
     } finally {

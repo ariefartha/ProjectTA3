@@ -33,7 +33,7 @@ export default function RegisterForm() {
 
     const showToast = useShowToast();
     const setUser = useSetRecoilState(userAtom);
-    const navigate = useNavigate();  // Hook untuk melakukan navigasi
+    const navigate = useNavigate();  
 
     const handleSignup = async () => {
         setLoading(true)
